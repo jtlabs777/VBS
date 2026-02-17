@@ -8,41 +8,43 @@
 
 /* ---------- CSS Custom Properties ---------- */
 :root {
-  --color-navy:       #0a1f3f;
+  --color-navy: #0a1f3f;
   --color-navy-light: #14345e;
-  --color-navy-dark:  #06142b;
-  --color-gold:       #f0b830;
+  --color-navy-dark: #06142b;
+  --color-gold: #f0b830;
   --color-gold-light: #ffd566;
-  --color-gold-dark:  #c49520;
-  --color-white:      #ffffff;
-  --color-off-white:  #f4f6fa;
-  --color-gray-100:   #e8ecf2;
-  --color-gray-200:   #d0d6e0;
-  --color-gray-600:   #5a6577;
-  --color-gray-800:   #2d3544;
-  --color-success:    #27ae60;
-  --color-danger:     #e74c3c;
+  --color-gold-dark: #c49520;
+  --color-white: #ffffff;
+  --color-off-white: #f4f6fa;
+  --color-gray-100: #e8ecf2;
+  --color-gray-200: #d0d6e0;
+  --color-gray-600: #5a6577;
+  --color-gray-800: #2d3544;
+  --color-success: #27ae60;
+  --color-danger: #e74c3c;
 
   --font-heading: 'Outfit', sans-serif;
-  --font-body:    'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
 
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 20px;
   --radius-xl: 28px;
 
-  --shadow-sm:  0 2px 8px rgba(10, 31, 63, 0.08);
-  --shadow-md:  0 4px 20px rgba(10, 31, 63, 0.12);
-  --shadow-lg:  0 8px 40px rgba(10, 31, 63, 0.18);
+  --shadow-sm: 0 2px 8px rgba(10, 31, 63, 0.08);
+  --shadow-md: 0 4px 20px rgba(10, 31, 63, 0.12);
+  --shadow-lg: 0 8px 40px rgba(10, 31, 63, 0.18);
   --shadow-glow: 0 0 30px rgba(240, 184, 48, 0.25);
 
   --transition-fast: 0.2s ease;
-  --transition-med:  0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-med: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ---------- Reset & Base ---------- */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -66,11 +68,13 @@ a {
   text-decoration: none;
   transition: color var(--transition-fast);
 }
+
 a:hover {
   color: var(--color-gold);
 }
 
-img, video {
+img,
+video {
   max-width: 100%;
   height: auto;
   display: block;
@@ -102,6 +106,7 @@ img, video {
   color: var(--color-white);
   letter-spacing: -0.5px;
 }
+
 .nav-logo span {
   color: var(--color-gold);
 }
@@ -120,6 +125,7 @@ img, video {
   border-radius: var(--radius-sm);
   transition: all var(--transition-fast);
 }
+
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--color-white);
@@ -157,8 +163,15 @@ img, video {
 }
 
 @keyframes floatOrb {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50%      { transform: translate(-40px, 30px) scale(1.1); }
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-40px, 30px) scale(1.1);
+  }
 }
 
 .hero-inner {
@@ -198,6 +211,7 @@ img, video {
   margin-bottom: 20px;
   letter-spacing: -1px;
 }
+
 .hero-title .highlight {
   color: var(--color-gold);
 }
@@ -233,6 +247,7 @@ img, video {
   box-shadow: var(--shadow-glow);
   text-decoration: none;
 }
+
 .hero-cta:hover {
   background: var(--color-gold-light);
   transform: translateY(-2px);
@@ -246,13 +261,21 @@ img, video {
   transition: transform var(--transition-med);
   animation: fadeSlideUp 0.8s ease-out;
 }
+
 .hero-flyer:hover {
   transform: scale(1.02) rotate(-1deg);
 }
 
 @keyframes fadeSlideUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ---------- Section Utilities ---------- */
@@ -331,7 +354,10 @@ img, video {
 
 .video-wrapper video {
   width: 100%;
+  max-height: 450px;
+  object-fit: contain;
   display: block;
+  margin: 0 auto;
 }
 
 /* ---------- Registration Form ---------- */
@@ -428,6 +454,7 @@ img, video {
   cursor: pointer;
   transition: all var(--transition-med);
 }
+
 .btn-submit:hover {
   background: var(--color-navy-light);
   transform: translateY(-2px);
@@ -482,6 +509,7 @@ img, video {
   transition: all var(--transition-med);
   box-shadow: var(--shadow-glow);
 }
+
 .gallery-link:hover {
   background: var(--color-gold-light);
   transform: translateY(-3px);
@@ -604,13 +632,19 @@ img, video {
   border: none;
   transition: opacity var(--transition-fast);
 }
+
 .lightbox-close:hover {
   opacity: 0.7;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 /* ---------- Responsive ---------- */
@@ -651,9 +685,11 @@ img, video {
     padding: 16px 24px;
     box-shadow: var(--shadow-md);
   }
+
   .nav-links.open {
     display: flex;
   }
+
   .nav-toggle {
     display: block;
   }
