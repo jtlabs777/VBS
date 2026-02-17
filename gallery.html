@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Previous Event Gallery | Advent Hope Atlanta VBS</title>
+    <meta name="description"
+        content="Browse photos and videos from our previous kids camp and events at Advent Hope Atlanta." />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+    <!-- ========== NAVIGATION ========== -->
+    <header class="site-header">
+        <nav class="nav-container">
+            <a href="https://adventhopeatlanta.org/" class="nav-logo">Advent Hope <span>Atlanta</span></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="vbs.html">VBS Home</a></li>
+                <li><a href="vbs.html#video-section">Teaser</a></li>
+                <li><a href="vbs.html#register">Register</a></li>
+                <li><a href="gallery.html" class="active">Past Event</a></li>
+                <li><a href="https://adventhopeatlanta.org/">Main Site</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ========== GALLERY HERO ========== -->
+    <section class="gallery-hero">
+        <h1>Previous Event Gallery</h1>
+        <p>A look back at all the fun our kids had — and a preview of what's to come!</p>
+        <a href="vbs.html" class="gallery-back-link">← Back to VBS Home</a>
+    </section>
+
+    <!-- ========== GALLERY GRID ========== -->
+    <div class="gallery-grid" id="galleryGrid">
+        <!-- Items are dynamically populated via JS -->
+    </div>
+
+    <!-- ========== LIGHTBOX ========== -->
+    <div class="lightbox-overlay" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <div id="lightboxContent"></div>
+    </div>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="site-footer">
+        <p>&copy; 2026 Advent Hope Atlanta SDA Church &middot; <a
+                href="https://adventhopeatlanta.org/">adventhopeatlanta.org</a></p>
+    </footer>
+
+    <!-- ========== SCRIPTS ========== -->
+    <script>
+        // Mobile nav toggle
+        document.getElementById('navToggle').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('open');
+        });
+
+        // ---- Media inventory (excluding featured flyer & teaser) ----
+        const images = [
+            'media/images/2026_02_15_183428_3A4B34BA4CBF70B4CA20.jpeg',
+            'media/images/2026_02_15_183429_3A09EFE325307933BAB0.jpeg',
+            'media/images/2026_02_15_183429_3A122FE0E7010246980E.jpeg',
+            'media/images/2026_02_15_183429_3A1996312FB4C89C9849.jpeg',
+            'media/images/2026_02_15_183429_3A47B1DC4B9507FED9C6.jpeg',
+            'media/images/2026_02_15_183429_3A66E7BD31157AC87A36.jpeg',
+            'media/images/2026_02_15_183429_3AA8CA4F6B5EFE293BA8.jpeg',
+            'media/images/2026_02_15_183429_3AB3100D3DAB6BC0BD9C.jpeg',
+            'media/images/2026_02_15_183429_3AD0FE699D7D06D8956F.jpeg',
+            'media/images/2026_02_15_183429_3AD3D167F4A3329F9F2A.jpeg',
+            'media/images/2026_02_15_183429_3AD73390401E53FA0222.jpeg',
+            'media/images/2026_02_15_183429_3ADA640219018AE5B91F.jpeg',
+            'media/images/2026_02_15_183429_3AE15A87474B1603E06D.jpeg',
+            'media/images/2026_02_15_183430_3A092ABA7F3CEE78DCC8.jpeg',
+            'media/images/2026_02_15_183430_3A432061B0362B08A9D5.jpeg',
+            'media/images/2026_02_15_183430_3A584A924E84F38266F8.jpeg',
+            'media/images/2026_02_15_183430_3A5B6AA9460C7E69F80C.jpeg',
+            'media/images/2026_02_15_183430_3A6AFE96F608053122B8.jpeg',
+            'media/images/2026_02_15_183430_3A71F567BC174738AEA5.jpeg',
+            'media/images/2026_02_15_183430_3A75E095240A07B39BD6.jpeg',
+            'media/images/2026_02_15_183430_3A79EAEBCB0EB3E6C52D.jpeg',
+            'media/images/2026_02_15_183430_3A7C1710BD28021CCCCD.jpeg',
+            'media/images/2026_02_15_183430_3A7F62EE7F8DCDF01814.jpeg',
+            'media/images/2026_02_15_183430_3A9D4FE52A5B4A7B4B61.jpeg',
+            'media/images/2026_02_15_183430_3AB89D6FA920A41F4861.jpeg',
+            'media/images/2026_02_15_183430_3ACEB3E50425F0D4A07A.jpeg',
+            'media/images/2026_02_15_183430_3ADE80FE3328989A20F8.jpeg',
+            'media/images/2026_02_15_183431_3A2F8B354F3CC72EF939.jpeg',
+            'media/images/2026_02_15_183505_3A5E72ED24FD7253E72A.jpeg',
+            'media/images/2026_02_15_183505_3A9538F8EF2E505D116A.jpeg',
+            'media/images/2026_02_15_183505_3A9D41E41E7EED118619.jpeg',
+            'media/images/2026_02_15_183505_3ABBF970D6EEB9DE9E6C.jpeg',
+            'media/images/2026_02_15_183505_3ACE5477BDCFFD8E297F.jpeg',
+            'media/images/2026_02_15_183505_3AF25516C5B5170E8FB3.jpeg',
+            'media/images/2026_02_15_183506_3A04259DC8416CB173A4.jpeg',
+            'media/images/2026_02_15_183506_3A0F28EB8145A11732C6.jpeg',
+            'media/images/2026_02_15_183506_3A2725DAA80710591F17.jpeg',
+            'media/images/2026_02_15_183506_3A3E35207FB9ABEA8D30.jpeg',
+            'media/images/2026_02_15_183506_3A54AE55014FF38EBDD4.jpeg',
+            'media/images/2026_02_15_183506_3A57A013858B3F57D6A3.jpeg',
+            'media/images/2026_02_15_183506_3A69FF9079F2CAD9AF29.jpeg',
+            'media/images/2026_02_15_183506_3A6F062B1D3A82AB8635.jpeg',
+            'media/images/2026_02_15_183506_3A782CE08CA43AB481A2.jpeg',
+            'media/images/2026_02_15_183506_3A9A0F45DB97D99AD270.jpeg',
+            'media/images/2026_02_15_183506_3AD9416750FC8E9F52E3.jpeg',
+            'media/images/2026_02_15_183506_3AE8E0676B3F00E6BB2A.jpeg',
+            'media/images/2026_02_15_183506_3AE91C7CEB9F61092403.jpeg',
+            'media/images/2026_02_15_183506_3AEF8DEF264723465A1E.jpeg',
+            'media/images/2026_02_15_183506_3AFFE67F87B8392460D0.jpeg',
+            'media/images/2026_02_15_183507_3A00D54940EE9C4A85D6.jpeg',
+            'media/images/2026_02_15_183507_3A07BD3DC63DC94C2A34.jpeg',
+            'media/images/2026_02_15_183507_3A0C5E54A22F56BF6C36.jpeg',
+            'media/images/2026_02_15_183507_3A11E1AC4F28E04D8990.jpeg',
+            'media/images/2026_02_15_183507_3A23D6F98E9B70D2917D.jpeg',
+            'media/images/2026_02_15_183507_3A2B50B53C59F3C2AF1B.jpeg',
+            'media/images/2026_02_15_183507_3A2D4AEC106AFCCFBCAE.jpeg',
+            'media/images/2026_02_15_183507_3A4D9FC2D7EE06E2AB27.jpeg'
+        ];
+
+        const videos = [
+            'media/videos/2026_02_15_183257_3A35F9BC99F3A2198F14.mp4',
+            'media/videos/2026_02_15_183258_3A459A606ACFD6AE7487.mp4',
+            'media/videos/2026_02_15_183259_3A9A649F9445B2C6228F.mp4',
+            'media/videos/2026_02_15_183300_3A860DD455D3ECF44345.mp4',
+            'media/videos/2026_02_15_183300_3ABE2745F7D6DF875B4E.mp4',
+            'media/videos/2026_02_15_183431_3A070B6341FAF2AA541F.mp4',
+            'media/videos/2026_02_15_183431_3A7FE2AA1BF3A8CBD9CD.mp4',
+            'media/videos/2026_02_15_183431_3AA53F27B91B85BE0290.mp4',
+            'media/videos/2026_02_15_183431_3AC701DEBD1E9B045CBA.mp4',
+            'media/videos/2026_02_15_183432_3A1A626D31FFBC8E9324.mp4',
+            'media/videos/2026_02_15_183433_3A989A6A751AA1E25750.mp4',
+            'media/videos/2026_02_15_183433_3AA2FFA256CCDBF78F43.mp4',
+            'media/videos/2026_02_15_183434_3A892674D47482EE77E5.mp4',
+            'media/videos/2026_02_15_183434_3A8BE120EEC30B6213D5.mp4',
+            'media/videos/2026_02_15_183435_3A2DAE9BD149E3D47B6E.mp4',
+            'media/videos/2026_02_15_183436_3A93FC255B2E50E45C23.mp4',
+            'media/videos/2026_02_15_183437_3AE735C85FFE0DFEC8E0.mp4',
+            'media/videos/2026_02_15_183438_3A61BE75DCDCB2A07EDE.mp4',
+            'media/videos/2026_02_15_183439_3A23C31944BAB009B250.mp4',
+            'media/videos/2026_02_15_183440_3A5F9EED87F834CC2F8C.mp4',
+            'media/videos/2026_02_15_183545_3A9AA0BDA79AF43DEF41.mp4',
+            'media/videos/2026_02_15_184146_3A83A6834B3B13A6439F.mp4'
+        ];
+
+        // ---- Build gallery ----
+        const grid = document.getElementById('galleryGrid');
+
+        // Shuffle helper for a more natural collage feel
+        function shuffle(arr) {
+            const a = [...arr];
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+
+        // Interleave images and videos
+        const allMedia = shuffle([
+            ...images.map(src => ({ type: 'image', src })),
+            ...videos.map(src => ({ type: 'video', src }))
+        ]);
+
+        allMedia.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'gallery-item';
+
+            if (item.type === 'image') {
+                const img = document.createElement('img');
+                img.src = item.src;
+                img.alt = 'Event photo';
+                img.loading = 'lazy';
+                img.addEventListener('click', () => openLightbox('image', item.src));
+                div.appendChild(img);
+            } else {
+                const video = document.createElement('video');
+                video.src = item.src;
+                video.controls = true;
+                video.preload = 'metadata';
+                div.appendChild(video);
+            }
+
+            grid.appendChild(div);
+        });
+
+        // ---- Lightbox ----
+        const lightbox = document.getElementById('lightbox');
+        const lightboxContent = document.getElementById('lightboxContent');
+        const lightboxClose = document.getElementById('lightboxClose');
+
+        function openLightbox(type, src) {
+            lightboxContent.innerHTML = '';
+            if (type === 'image') {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = 'Enlarged photo';
+                lightboxContent.appendChild(img);
+            }
+            lightbox.classList.add('active');
+        }
+
+        lightboxClose.addEventListener('click', () => lightbox.classList.remove('active'));
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) lightbox.classList.remove('active');
+        });
+    </script>
+
+</body>
+
+</html>
