@@ -1,0 +1,80 @@
+/* ============================================
+   Fluent Forms Custom CSS
+   Paste this into: Fluent Forms → Form Settings → 
+   Custom CSS/JS → Custom CSS
+   ============================================ */
+
+/* Labels */
+.ff-el-input--label label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #2d3544;
+  margin-bottom: 6px;
+}
+
+/* Input fields, dropdowns, textareas */
+.ff-el-form-control {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  padding: 12px 16px;
+  border: 2px solid #e8ecf2;
+  border-radius: 8px;
+  background: #f4f6fa;
+  color: #2d3544;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Focus state — gold ring matching prototype */
+.ff-el-form-control:focus {
+  border-color: #f0b830;
+  box-shadow: 0 0 0 4px rgba(240, 184, 48, 0.15);
+  outline: none;
+}
+
+/* Textarea minimum height */
+.ff-el-form-control[rows] {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Submit button — navy pill matching prototype */
+.ff_submit_btn_wrapper .ff-btn-submit {
+  background: #0a1f3f;
+  color: #ffffff;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 14px 40px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+  margin: 10px auto 0;
+}
+
+/* Submit button hover */
+.ff_submit_btn_wrapper .ff-btn-submit:hover {
+  background: #14345e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(10, 31, 63, 0.12);
+}
+
+/* Required asterisk color */
+.ff-el-input--label .ff-el-required {
+  color: #e74c3c;
+}
+
+/* Success/confirmation message styling */
+.ff-message-success {
+  text-align: center;
+  padding: 40px 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.ff-message-success .ff-message-success-message {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.4rem;
+  color: #0a1f3f;
+}

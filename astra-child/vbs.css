@@ -1,0 +1,461 @@
+/* ============================================
+   VBS 2026 — Advent Hope Atlanta
+   WordPress Child Theme Styles
+   
+   Ported from prototype styles.css.
+   Nav & footer handled by Astra theme.
+   Lightbox handled by Spectra gallery block.
+   Form inputs handled by Fluent Forms custom CSS.
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+/* ---------- CSS Custom Properties ---------- */
+:root {
+  --vbs-navy: #0a1f3f;
+  --vbs-navy-light: #14345e;
+  --vbs-navy-dark: #06142b;
+  --vbs-gold: #f0b830;
+  --vbs-gold-light: #ffd566;
+  --vbs-gold-dark: #c49520;
+  --vbs-white: #ffffff;
+  --vbs-off-white: #f4f6fa;
+  --vbs-gray-100: #e8ecf2;
+  --vbs-gray-200: #d0d6e0;
+  --vbs-gray-600: #5a6577;
+  --vbs-gray-800: #2d3544;
+
+  --vbs-font-heading: 'Outfit', sans-serif;
+  --vbs-font-body: 'Inter', sans-serif;
+
+  --vbs-radius-sm: 8px;
+  --vbs-radius-md: 12px;
+  --vbs-radius-lg: 20px;
+  --vbs-radius-xl: 28px;
+
+  --vbs-shadow-sm: 0 2px 8px rgba(10, 31, 63, 0.08);
+  --vbs-shadow-md: 0 4px 20px rgba(10, 31, 63, 0.12);
+  --vbs-shadow-lg: 0 8px 40px rgba(10, 31, 63, 0.18);
+  --vbs-shadow-glow: 0 0 30px rgba(240, 184, 48, 0.25);
+
+  --vbs-transition-fast: 0.2s ease;
+  --vbs-transition-med: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --vbs-transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------- Hero Section ---------- */
+.vbs-hero {
+  position: relative;
+  background: linear-gradient(135deg, var(--vbs-navy) 0%, var(--vbs-navy-light) 50%, var(--vbs-navy) 100%);
+  overflow: hidden;
+  padding: 80px 24px;
+}
+
+.vbs-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(240, 184, 48, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: vbsFloatOrb 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes vbsFloatOrb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-40px, 30px) scale(1.1); }
+}
+
+.vbs-hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.vbs-hero-text {
+  color: var(--vbs-white);
+}
+
+.vbs-hero-badge {
+  display: inline-block;
+  background: rgba(240, 184, 48, 0.2);
+  color: var(--vbs-gold);
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 6px 16px;
+  border-radius: 50px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  border: 1px solid rgba(240, 184, 48, 0.3);
+}
+
+.vbs-hero-title {
+  font-family: var(--vbs-font-heading);
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+  color: var(--vbs-white);
+}
+
+.vbs-hero-title .vbs-highlight {
+  color: var(--vbs-gold);
+}
+
+.vbs-hero-dates {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--vbs-gray-200);
+  margin-bottom: 10px;
+}
+
+.vbs-hero-time {
+  font-size: 1rem;
+  color: var(--vbs-gray-200);
+  opacity: 0.8;
+  margin-bottom: 28px;
+}
+
+.vbs-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--vbs-gold);
+  color: var(--vbs-navy);
+  font-family: var(--vbs-font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 14px 32px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all var(--vbs-transition-med);
+  box-shadow: var(--vbs-shadow-glow);
+  text-decoration: none;
+}
+
+.vbs-hero-cta:hover {
+  background: var(--vbs-gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px rgba(240, 184, 48, 0.4);
+  color: var(--vbs-navy);
+}
+
+.vbs-hero-flyer {
+  border-radius: var(--vbs-radius-lg);
+  box-shadow: var(--vbs-shadow-lg);
+  transition: transform var(--vbs-transition-med);
+  animation: vbsFadeSlideUp 0.8s ease-out;
+}
+
+.vbs-hero-flyer:hover {
+  transform: scale(1.02) rotate(-1deg);
+}
+
+@keyframes vbsFadeSlideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Section Utilities ---------- */
+.vbs-section {
+  padding: 80px 24px;
+}
+
+.vbs-section-dark {
+  background: var(--vbs-navy);
+  color: var(--vbs-white);
+}
+
+.vbs-section-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.vbs-section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.vbs-section-tag {
+  display: inline-block;
+  background: rgba(240, 184, 48, 0.15);
+  color: var(--vbs-gold-dark);
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding: 5px 14px;
+  border-radius: 50px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.vbs-section-dark .vbs-section-tag {
+  color: var(--vbs-gold);
+  background: rgba(240, 184, 48, 0.2);
+}
+
+.vbs-section-title {
+  font-family: var(--vbs-font-heading);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--vbs-navy);
+  letter-spacing: -0.5px;
+}
+
+.vbs-section-dark .vbs-section-title {
+  color: var(--vbs-white);
+}
+
+.vbs-section-subtitle {
+  font-size: 1.05rem;
+  color: var(--vbs-gray-600);
+  margin-top: 10px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.vbs-section-dark .vbs-section-subtitle {
+  color: var(--vbs-gray-200);
+}
+
+/* ---------- Video Section ---------- */
+.vbs-video-wrapper {
+  position: relative;
+  border-radius: var(--vbs-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--vbs-shadow-lg);
+  max-width: 800px;
+  margin: 0 auto;
+  background: #000;
+}
+
+.vbs-video-wrapper video,
+.vbs-video-wrapper iframe {
+  width: 100%;
+  max-height: 450px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ---------- Registration Form Wrapper ---------- */
+/* This wraps the Fluent Forms output. Form field styling 
+   is in the Fluent Forms custom CSS panel. */
+.vbs-form-card {
+  background: var(--vbs-white);
+  border-radius: var(--vbs-radius-xl);
+  padding: 48px;
+  box-shadow: var(--vbs-shadow-lg);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* Fee notice banner below the form */
+.vbs-fee-notice {
+  grid-column: 1 / -1;
+  background: rgba(240, 184, 48, 0.1);
+  border: 1px solid rgba(240, 184, 48, 0.3);
+  border-radius: var(--vbs-radius-sm);
+  padding: 14px 20px;
+  font-size: 0.9rem;
+  color: var(--vbs-navy);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.vbs-fee-notice .vbs-fee-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+/* ---------- Gallery Link Section ---------- */
+.vbs-gallery-link-section {
+  text-align: center;
+  padding: 60px 24px;
+  background: linear-gradient(135deg, var(--vbs-navy-dark), var(--vbs-navy-light));
+}
+
+.vbs-gallery-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--vbs-gold);
+  color: var(--vbs-navy);
+  font-family: var(--vbs-font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 16px 36px;
+  border-radius: 50px;
+  transition: all var(--vbs-transition-med);
+  box-shadow: var(--vbs-shadow-glow);
+  text-decoration: none;
+}
+
+.vbs-gallery-link:hover {
+  background: var(--vbs-gold-light);
+  transform: translateY(-3px);
+  box-shadow: 0 0 50px rgba(240, 184, 48, 0.4);
+  color: var(--vbs-navy);
+}
+
+.vbs-gallery-link-subtitle {
+  color: var(--vbs-gray-200);
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+/* ---------- Gallery Page ---------- */
+.vbs-gallery-hero {
+  background: linear-gradient(135deg, var(--vbs-navy), var(--vbs-navy-light));
+  text-align: center;
+  padding: 80px 24px 60px;
+  color: var(--vbs-white);
+}
+
+.vbs-gallery-hero h1,
+.vbs-gallery-hero .vbs-gallery-title {
+  font-family: var(--vbs-font-heading);
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: var(--vbs-white);
+}
+
+.vbs-gallery-hero p {
+  font-size: 1.1rem;
+  color: var(--vbs-gray-200);
+}
+
+.vbs-gallery-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--vbs-gold);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-top: 16px;
+  text-decoration: none;
+  transition: color var(--vbs-transition-fast);
+}
+
+.vbs-gallery-back-link:hover {
+  color: var(--vbs-gold-light);
+}
+
+/* Spectra Image Gallery overrides (for masonry VBS gallery) */
+.vbs-gallery-grid .uagb-image-gallery {
+  column-gap: 20px;
+}
+
+.vbs-gallery-grid .uagb-image-gallery__media-wrapper {
+  border-radius: var(--vbs-radius-md);
+  overflow: hidden;
+  box-shadow: var(--vbs-shadow-sm);
+  transition: transform var(--vbs-transition-med), box-shadow var(--vbs-transition-med);
+  margin-bottom: 20px;
+}
+
+.vbs-gallery-grid .uagb-image-gallery__media-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--vbs-shadow-lg);
+}
+
+/* Videos section on gallery page */
+.vbs-gallery-videos {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.vbs-gallery-videos .vbs-video-item {
+  border-radius: var(--vbs-radius-md);
+  overflow: hidden;
+  box-shadow: var(--vbs-shadow-sm);
+  background: var(--vbs-white);
+  transition: transform var(--vbs-transition-med), box-shadow var(--vbs-transition-med);
+}
+
+.vbs-gallery-videos .vbs-video-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--vbs-shadow-lg);
+}
+
+.vbs-gallery-videos .vbs-video-item video {
+  width: 100%;
+  display: block;
+}
+
+/* ---------- Animations ---------- */
+@keyframes vbsFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .vbs-hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .vbs-hero-title {
+    font-size: 2.4rem;
+  }
+
+  .vbs-hero-flyer {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .vbs-gallery-videos {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .vbs-hero {
+    padding: 50px 16px;
+  }
+
+  .vbs-hero-title {
+    font-size: 2rem;
+  }
+
+  .vbs-section {
+    padding: 50px 16px;
+  }
+
+  .vbs-form-card {
+    padding: 28px 20px;
+  }
+
+  .vbs-gallery-hero h1,
+  .vbs-gallery-hero .vbs-gallery-title {
+    font-size: 2rem;
+  }
+
+  .vbs-gallery-videos {
+    grid-template-columns: 1fr;
+  }
+}

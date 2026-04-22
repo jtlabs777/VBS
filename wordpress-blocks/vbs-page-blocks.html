@@ -1,0 +1,84 @@
+<!-- ============================================
+     VBS 2026 MAIN PAGE — WordPress Custom HTML Blocks
+     Copy each section into a separate Custom HTML block 
+     in the Gutenberg editor.
+     ============================================ -->
+
+
+<!-- ========== BLOCK 1: HERO SECTION ========== -->
+<!-- Add as: Custom HTML block -->
+<section class="vbs-hero" id="vbs-home">
+  <div class="vbs-hero-inner">
+    <div class="vbs-hero-text">
+      <div class="vbs-hero-badge">🌟 Summer 2026</div>
+      <h1 class="vbs-hero-title">
+        Vacation<br /><span class="vbs-highlight">Bible School</span>
+      </h1>
+      <p class="vbs-hero-dates">📅 June 22 – 27, 2026</p>
+      <p class="vbs-hero-time">🕐 Time: TBD</p>
+      <a href="#vbs-register" class="vbs-hero-cta">Register Now →</a>
+    </div>
+    <!-- REPLACE the src below with the WordPress Media Library URL for the flyer image -->
+    <img src="REPLACE_WITH_WP_MEDIA_URL_FOR_FLYER" 
+         alt="Vacation Bible School 2026 Flyer" 
+         class="vbs-hero-flyer" />
+  </div>
+</section>
+
+
+<!-- ========== BLOCK 2: TEASER VIDEO SECTION ========== -->
+<!-- Add as: Custom HTML block -->
+<section class="vbs-section vbs-section-dark" id="vbs-video-section">
+  <div class="vbs-section-container">
+    <div class="vbs-section-header">
+      <div class="vbs-section-tag">Sneak Peek</div>
+      <h2 class="vbs-section-title">See What's in Store!</h2>
+      <p class="vbs-section-subtitle">
+        Check out highlights from our recent kids camp — VBS 2026 is going to be even bigger!
+      </p>
+    </div>
+    <div class="vbs-video-wrapper">
+      <!-- REPLACE the src below with the WordPress Media Library URL for the teaser video -->
+      <video controls preload="metadata">
+        <source src="REPLACE_WITH_WP_MEDIA_URL_FOR_TEASER_VIDEO" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== BLOCK 3: REGISTRATION FORM SECTION ========== -->
+<!-- Add as: Custom HTML block -->
+<section class="vbs-section" id="vbs-register">
+  <div class="vbs-section-container">
+    <div class="vbs-section-header">
+      <div class="vbs-section-tag">Sign Up</div>
+      <h2 class="vbs-section-title">Register for VBS 2026</h2>
+      <p class="vbs-section-subtitle">
+        Secure your child's spot for an amazing week of fun and spiritual growth.
+      </p>
+    </div>
+
+    <div class="vbs-form-card">
+      <!-- REPLACE X with your Fluent Forms form ID after creating the form -->
+      [fluentform id="X"]
+    </div>
+
+    <!-- Fee Notice -->
+    <div class="vbs-fee-notice">
+      <span class="vbs-fee-icon">💰</span>
+      <span>A minimum registration fee of <strong>$20.00</strong> is required to cover supplies. Payment details
+        will be sent to your email after submission.</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== BLOCK 4: GALLERY LINK BANNER ========== -->
+<!-- Add as: Custom HTML block -->
+<section class="vbs-gallery-link-section">
+  <p class="vbs-gallery-link-subtitle">Want to see what our past events looked like?</p>
+  <!-- REPLACE /vbs/gallery with the actual permalink if it differs -->
+  <a href="/vbs/gallery" class="vbs-gallery-link">📸 View Previous Event Gallery</a>
+</section>
