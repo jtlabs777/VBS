@@ -44,3 +44,16 @@ function astra_child_enqueue_styles() {
         $vbs_css_ver
     );
 }
+
+/**
+ * Force 'Full Width / Stretched' layout on VBS pages.
+ * Bypasses Astra Customizer and individual page settings.
+ */
+add_filter( 'astra_get_content_layout', 'vbs_force_stretched_layout' );
+function vbs_force_stretched_layout( $layout ) {
+    // Target VBS pages by slug or title to force Astra's full-width stretched container
+    if ( is_page( array( 'vbs', 'vbs-2026', 'gallery', 'previous-event-gallery' ) ) ) {
+        return 'page-builder'; // Astra's internal slug for 'Full Width / Stretched'
+    }
+    return $layout;
+}
