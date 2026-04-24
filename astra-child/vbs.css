@@ -491,23 +491,40 @@
   }
 }
 
-/* Videos section on gallery page */
+/* Videos section on gallery page - Masonry Layout */
 .vbs-gallery-videos {
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 24px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 24px;
+  column-count: 3;
+  column-gap: 24px;
 }
 
 .vbs-gallery-videos .vbs-video-item {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 24px;
+  break-inside: avoid;
   border-radius: var(--vbs-radius-md);
   overflow: hidden;
   box-shadow: var(--vbs-shadow-sm);
-  background: var(--vbs-white);
+  background: #000; /* Black background for video items to look professional */
   transition: transform var(--vbs-transition-med), box-shadow var(--vbs-transition-med);
 }
+
+@media (max-width: 900px) {
+  .vbs-gallery-videos {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .vbs-gallery-videos {
+    column-count: 1;
+  }
+}
+
+
 
 .vbs-gallery-videos .vbs-video-item:hover {
   transform: translateY(-4px);
