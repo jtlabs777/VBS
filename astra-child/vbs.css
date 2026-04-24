@@ -631,6 +631,33 @@
   }
 
   .vbs-gallery-videos {
-    grid-template-columns: 1fr;
+    column-count: 1;
   }
+}
+
+/* ---------- Custom VBS Footer ---------- */
+.vbs-footer {
+  background: var(--vbs-navy);
+  color: var(--vbs-white);
+  padding: 60px 24px;
+  text-align: center;
+  font-family: var(--vbs-font-main);
+}
+
+.vbs-footer p {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.vbs-footer a {
+  color: var(--vbs-gold);
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.vbs-footer a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
 }
