@@ -24,12 +24,12 @@
 }
 
 .vbs-nav-container {
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 1000px !important;
+  margin: 0 auto !important;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
+  padding: 0 20px !important;
   height: 70px;
 }
 
@@ -37,13 +37,15 @@
   font-family: var(--vbs-font-heading);
   font-weight: 800;
   font-size: 1.4rem;
-  color: var(--vbs-white);
+  color: var(--vbs-white) !important;
   letter-spacing: -0.5px;
-  text-decoration: none;
+  text-decoration: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .vbs-nav-logo span {
-  color: var(--vbs-gold);
+  color: var(--vbs-gold) !important;
 }
 
 .vbs-nav-links {
@@ -54,18 +56,20 @@
 }
 
 .vbs-nav-links a {
-  color: var(--vbs-gray-200);
+  color: var(--vbs-gray-200) !important;
   font-weight: 500;
   font-size: 0.9rem;
   padding: 8px 16px;
   border-radius: var(--vbs-radius-sm);
   transition: all var(--vbs-transition-fast);
-  text-decoration: none;
+  text-decoration: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .vbs-nav-links a:hover,
 .vbs-nav-links a.active {
-  color: var(--vbs-white);
+  color: var(--vbs-white) !important;
   background: rgba(240, 184, 48, 0.15);
 }
 
@@ -147,7 +151,7 @@
   position: relative;
   background: linear-gradient(135deg, var(--vbs-navy) 0%, var(--vbs-navy-light) 50%, var(--vbs-navy) 100%);
   overflow: hidden;
-  padding: 80px 24px;
+  padding: 80px 0; /* padding applied to inner now */
 }
 
 .vbs-hero::before {
@@ -169,8 +173,9 @@
 }
 
 .vbs-hero-inner {
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 1000px !important;
+  margin: 0 auto !important;
+  padding: 0 20px !important;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
@@ -255,6 +260,9 @@
   box-shadow: var(--vbs-shadow-lg);
   transition: transform var(--vbs-transition-med);
   animation: vbsFadeSlideUp 0.8s ease-out;
+  max-width: 440px !important;
+  margin-left: auto;
+  width: 100%;
 }
 
 .vbs-hero-flyer:hover {
