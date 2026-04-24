@@ -511,7 +511,7 @@ video {
   min-height: 100px;
 }
 
-.form-fee-notice {
+.form-age-notice {
   grid-column: 1 / -1;
   background: rgba(240, 184, 48, 0.1);
   border: 1px solid rgba(240, 184, 48, 0.3);
@@ -521,10 +521,10 @@ video {
   color: var(--color-navy);
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
-.form-fee-notice .fee-icon {
+.form-age-notice .age-icon {
   font-size: 1.3rem;
 }
 
