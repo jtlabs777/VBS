@@ -38,10 +38,10 @@
   resize: vertical;
 }
 
-/* Submit button — navy pill matching prototype */
+/* Submit button — gold pill matching prototype */
 .ff_submit_btn_wrapper .ff-btn-submit {
-  background: #0a1f3f;
-  color: #ffffff;
+  background: #f0b830;
+  color: #0a1f3f;
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
   font-size: 1rem;
@@ -52,13 +52,15 @@
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   display: block;
   margin: 10px auto 0;
+  box-shadow: 0 0 30px rgba(240, 184, 48, 0.25);
 }
 
 /* Submit button hover */
 .ff_submit_btn_wrapper .ff-btn-submit:hover {
-  background: #14345e;
+  background: #ffd566;
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(10, 31, 63, 0.12);
+  box-shadow: 0 0 40px rgba(240, 184, 48, 0.4);
+  color: #0a1f3f;
 }
 
 /* Required asterisk color */
