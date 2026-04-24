@@ -519,6 +519,50 @@
   display: block;
 }
 
+/* ---------- Custom Gallery Lightbox ---------- */
+.vbs-lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 25, 47, 0.95);
+  backdrop-filter: blur(10px);
+  cursor: zoom-out;
+  animation: vbsFadeIn 0.3s ease;
+}
+
+.vbs-lightbox.open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vbs-lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: var(--vbs-radius-md);
+  box-shadow: 0 0 50px rgba(0,0,0,0.5);
+  cursor: default;
+}
+
+.vbs-lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: var(--vbs-white);
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.vbs-lightbox-close:hover {
+  color: var(--vbs-gold);
+}
+
 /* ---------- Animations ---------- */
 @keyframes vbsFadeIn {
   from { opacity: 0; }

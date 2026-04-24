@@ -23,7 +23,7 @@
   2. Select all 76 images from the Media Library.
   3. In the block settings sidebar:
      - Set "Columns" to 3.
-     - Toggle ON "Expand on click" (this is the native Lightbox).
+     - In the "Link to" dropdown, select **Media File**. (This is required for our custom Lightbox to work).
   4. In the "Advanced" tab of the block settings:
      - In the "Additional CSS class(es)" field, type: vbs-gallery-grid
      - This class will automatically apply the masonry layout using the CSS we added to vbs.css.
@@ -190,3 +190,49 @@
 <div style="text-align: center; padding: 40px 24px 60px;">
   <a href="/vbs" class="vbs-gallery-back-link" style="font-size: 1rem;">← Back to VBS Home</a>
 </div>
+
+<!-- ========== CUSTOM LIGHTBOX OVERLAY ========== -->
+<!-- Add this to a separate Custom HTML block at the bottom of the page -->
+<div class="vbs-lightbox" id="vbsLightbox">
+  <span class="vbs-lightbox-close" id="vbsLightboxClose">&times;</span>
+  <img class="vbs-lightbox-content" id="vbsLightboxImg">
+</div>
+
+<script>
+  // Custom Lightbox Logic for VBS Gallery
+  document.addEventListener('DOMContentLoaded', function() {
+    const lightbox = document.getElementById('vbsLightbox');
+    const lightboxImg = document.getElementById('vbsLightboxImg');
+    const closeBtn = document.getElementById('vbsLightboxClose');
+    const galleryItems = document.querySelectorAll('.vbs-gallery-grid a');
+
+    galleryItems.forEach(item => {
+      item.addEventListener('click', function(e) {
+        // Only trigger if linking to an image file
+        const href = this.getAttribute('href');
+        if (href && (href.match(/\.(jpeg|jpg|gif|png|webp)/i))) {
+          e.preventDefault();
+          lightboxImg.src = href;
+          lightbox.classList.add('open');
+          document.body.style.overflow = 'hidden'; // Prevent scroll
+        }
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = 'auto';
+      lightboxImg.src = '';
+    }
+
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+    
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+    });
+  });
+</script>
