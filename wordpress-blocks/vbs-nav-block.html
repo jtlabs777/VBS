@@ -1,0 +1,27 @@
+<!-- ========== OPTION B: CUSTOM VBS NAVIGATION BLOCK ========== -->
+<!-- 
+  Add this as a Custom HTML block at the VERY TOP of the VBS page.
+  Make sure you disable the Primary Header in Astra Settings for this page.
+-->
+<header class="vbs-site-header">
+  <nav class="vbs-nav-container">
+    <a href="https://adventhopeatlanta.org/" class="vbs-nav-logo">Advent Hope <span>Atlanta</span></a>
+    
+    <button class="vbs-nav-toggle" id="vbs-navToggle" aria-label="Toggle navigation">☰</button>
+    
+    <ul class="vbs-nav-links" id="vbs-navLinks">
+      <li><a href="/vbs" class="active">VBS Home</a></li>
+      <li><a href="/vbs#vbs-video-section">Teaser</a></li>
+      <li><a href="/vbs#vbs-register">Register</a></li>
+      <li><a href="/vbs/gallery">Past Event</a></li>
+      <li><a href="https://adventhopeatlanta.org/">Main Site</a></li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  // Mobile nav toggle for custom VBS menu
+  document.getElementById('vbs-navToggle').addEventListener('click', function() {
+    document.getElementById('vbs-navLinks').classList.toggle('open');
+  });
+</script>

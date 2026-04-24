@@ -8,6 +8,100 @@
    Form inputs handled by Fluent Forms custom CSS.
    ============================================ */
 
+/* ---------- Custom VBS Navigation (Option B) ---------- */
+.vbs-site-header {
+  background: var(--vbs-navy);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--vbs-shadow-md);
+}
+
+.vbs-nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 70px;
+}
+
+.vbs-nav-logo {
+  font-family: var(--vbs-font-heading);
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--vbs-white);
+  letter-spacing: -0.5px;
+  text-decoration: none;
+}
+
+.vbs-nav-logo span {
+  color: var(--vbs-gold);
+}
+
+.vbs-nav-links {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  margin: 0;
+}
+
+.vbs-nav-links a {
+  color: var(--vbs-gray-200);
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 8px 16px;
+  border-radius: var(--vbs-radius-sm);
+  transition: all var(--vbs-transition-fast);
+  text-decoration: none;
+}
+
+.vbs-nav-links a:hover,
+.vbs-nav-links a.active {
+  color: var(--vbs-white);
+  background: rgba(240, 184, 48, 0.15);
+}
+
+/* Mobile nav toggle */
+.vbs-nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--vbs-white);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .vbs-nav-toggle {
+    display: block;
+  }
+  
+  .vbs-nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: var(--vbs-navy);
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+
+  .vbs-nav-links.open {
+    display: flex;
+  }
+
+  .vbs-nav-links a {
+    padding: 12px 16px;
+    display: block;
+  }
+}
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap');
 
 /* ---------- CSS Custom Properties ---------- */
