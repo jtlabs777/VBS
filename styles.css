@@ -513,15 +513,17 @@ video {
 
 .form-age-notice {
   grid-column: 1 / -1;
-  background: rgba(240, 184, 48, 0.1);
-  border: 1px solid rgba(240, 184, 48, 0.3);
+  background: #fffbe6; /* Warm light yellow background */
+  border: 1px solid #ffe58f; /* Subtle yellow border */
+  border-left: 5px solid var(--color-gold); /* Prominent left border for emphasis */
   border-radius: var(--radius-sm);
-  padding: 14px 20px;
-  font-size: 0.9rem;
+  padding: 16px 20px;
+  font-size: 0.95rem;
   color: var(--color-navy);
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 15px;
+  margin: 10px 0;
 }
 
 .form-age-notice .age-icon {
