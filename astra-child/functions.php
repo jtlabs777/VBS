@@ -33,41 +33,14 @@ function astra_child_enqueue_styles() {
         '1.0.0'
     );
 
-    // ── VBS-specific styles (only on VBS pages) ──
-    if ( astra_child_is_vbs_page() ) {
-        $vbs_css_path = get_stylesheet_directory() . '/vbs.css';
-        $vbs_css_ver  = file_exists( $vbs_css_path ) ? filemtime( $vbs_css_path ) : '1.0.1';
+    // ── VBS-specific styles (load on all pages to ensure it works regardless of slug/caching) ──
+    $vbs_css_path = get_stylesheet_directory() . '/vbs.css';
+    $vbs_css_ver  = file_exists( $vbs_css_path ) ? filemtime( $vbs_css_path ) : '1.0.2';
 
-        wp_enqueue_style(
-            'vbs-styles',
-            get_stylesheet_directory_uri() . '/vbs.css',
-            array( 'astra-child-style' ),
-            $vbs_css_ver
-        );
-    }
-}
-
-/**
- * Helper: Check if the current page is a VBS page.
- * Matches the /vbs page and any child pages (e.g. /vbs/gallery).
- */
-function astra_child_is_vbs_page() {
-    if ( ! is_page() ) {
-        return false;
-    }
-
-    $current_id = get_the_ID();
-
-    // Check if this IS the VBS page
-    $vbs_page = get_page_by_path( 'vbs' );
-    if ( ! $vbs_page ) {
-        return false;
-    }
-
-    // Current page is VBS, or its parent is VBS
-    if ( $current_id === $vbs_page->ID || wp_get_post_parent_id( $current_id ) === $vbs_page->ID ) {
-        return true;
-    }
-
-    return false;
+    wp_enqueue_style(
+        'vbs-styles',
+        get_stylesheet_directory_uri() . '/vbs.css',
+        array( 'astra-child-style' ),
+        $vbs_css_ver
+    );
 }
