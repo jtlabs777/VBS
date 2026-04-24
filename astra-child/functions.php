@@ -35,11 +35,14 @@ function astra_child_enqueue_styles() {
 
     // ── VBS-specific styles (only on VBS pages) ──
     if ( astra_child_is_vbs_page() ) {
+        $vbs_css_path = get_stylesheet_directory() . '/vbs.css';
+        $vbs_css_ver  = file_exists( $vbs_css_path ) ? filemtime( $vbs_css_path ) : '1.0.1';
+
         wp_enqueue_style(
             'vbs-styles',
             get_stylesheet_directory_uri() . '/vbs.css',
             array( 'astra-child-style' ),
-            '1.0.0'
+            $vbs_css_ver
         );
     }
 }
