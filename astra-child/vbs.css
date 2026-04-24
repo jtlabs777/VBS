@@ -8,6 +8,8 @@
    Form inputs handled by Fluent Forms custom CSS.
    ============================================ */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap');
+
 /* ---------- Custom VBS Navigation (Option B) ---------- */
 .vbs-site-header {
   background: var(--vbs-navy);
@@ -102,7 +104,6 @@
 
 
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap');
 
 /* ---------- CSS Custom Properties ---------- */
 :root {
