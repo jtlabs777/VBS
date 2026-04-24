@@ -3,6 +3,26 @@
   Add this as a Custom HTML block at the VERY TOP of the VBS page.
   Make sure you disable the Primary Header in Astra Settings for this page.
 -->
+
+<style>
+  /* Force Astra to allow true full-width for VBS pages */
+  #page,
+  #content.site-content,
+  .ast-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+  /* Remove gaps between Gutenberg blocks */
+  .entry-content > .wp-block-group, 
+  .entry-content > .wp-block-html,
+  .entry-content > * {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+</style>
+
 <header class="vbs-site-header">
   <nav class="vbs-nav-container">
     <a href="https://adventhopeatlanta.org/" class="vbs-nav-logo">Advent Hope <span>Atlanta</span></a>
