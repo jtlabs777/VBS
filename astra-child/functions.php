@@ -50,6 +50,24 @@ function astra_child_enqueue_styles() {
  * Bypasses Astra Customizer and individual page settings.
  */
 add_filter( 'astra_get_content_layout', 'vbs_force_stretched_layout' );
+
+
+/**
+ * Add custom Open Graph meta tags for VBS 2026 Page (ID 3)
+ */
+function vbs_custom_og_tags() {
+    if ( is_page( 3 ) ) {
+        echo "\n" . '<!-- Custom VBS Open Graph Tags -->' . "\n";
+        echo '<meta property="og:title" content="VBS 2026 - Join the Adventure!" />' . "\n";
+        echo '<meta property="og:description" content="Register now for a week of fun and learning at AdventHope Atlanta." />' . "\n";
+        echo '<meta property="og:image" content="https://adventhopeatlanta.org/wp-content/uploads/2026/04/wonderfully-made.jpeg" />' . "\n";
+        echo '<meta property="og:image:width" content="1200" />' . "\n";
+        echo '<meta property="og:image:height" content="630" />' . "\n";
+        echo '<meta property="og:type" content="website" />' . "\n";
+        echo '<meta property="og:url" content="' . esc_url( get_permalink() ) . '" />' . "\n";
+    }
+}
+add_action( 'wp_head', 'vbs_custom_og_tags', 1 );
 function vbs_force_stretched_layout( $layout ) {
     // Target VBS pages by slug or title to force Astra's full-width stretched container
     if ( is_page( array( 'vbs', 'vbs-2026', 'gallery', 'previous-event-gallery' ) ) ) {
