@@ -59,7 +59,7 @@ function vbs_custom_og_tags() {
     if ( is_page( 3 ) ) {
         echo "\n" . '<!-- Custom VBS Open Graph Tags -->' . "\n";
         echo '<meta property="og:title" content="VBS 2026 - Join the Adventure!" />' . "\n";
-        echo '<meta property="og:description" content="Register now for a week of fun and learning at AdventHope Atlanta." />' . "\n";
+        echo '<meta property="og:description" content="Register now for VBS 2026: Wonderfully Made! Join us for an amazing week of fun, discovery, and learning about how we are fearfully and wonderfully made at Advent Hope Atlanta." />' . "\n";
         echo '<meta property="og:image" content="https://adventhopeatlanta.org/wp-content/uploads/2026/04/wonderfully-made.jpeg" />' . "\n";
         echo '<meta property="og:image:width" content="1200" />' . "\n";
         echo '<meta property="og:image:height" content="630" />' . "\n";
