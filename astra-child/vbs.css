@@ -820,3 +820,38 @@
         font-size: 0.8rem;
     }
 }
+
+/* ---------- Astra Header Offset Fix ---------- */
+/* Pushes the header down to make room for the ticker above it */
+.vbs-ticker-wrap {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+}
+
+/* Target Astra's header containers */
+body.home .site-header,
+body.home #masthead,
+body.home .main-header-bar {
+    margin-top: 48px !important;
+}
+
+/* Fix for transparent/sticky headers that use 'top' instead of margins */
+body.home .ast-theme-transparent-header .site-header {
+    top: 48px !important;
+}
+
+@media (max-width: 921px) {
+    .vbs-ticker-wrap {
+        height: 40px;
+    }
+    body.home .site-header,
+    body.home #masthead,
+    body.home .main-header-bar,
+    body.home .ast-theme-transparent-header .site-header {
+        margin-top: 40px !important;
+        top: 40px !important;
+    }
+}
