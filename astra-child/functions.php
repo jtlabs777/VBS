@@ -81,8 +81,8 @@ function vbs_force_stretched_layout( $layout ) {
  * This hooks into Astra's 'astra_header_before' to appear above the main navigation.
  */
 function vbs_announcement_ticker() {
-    // Show on the homepage and the VBS page
-    if ( is_front_page() || is_page( array( 'vbs', 'vbs-2026' ) ) ) { 
+    // Show only on the main church homepage
+    if ( is_front_page() ) { 
         ?>
         <div class="vbs-ticker-wrap">
             <div class="vbs-ticker">
