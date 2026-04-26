@@ -93,4 +93,4 @@ function vbs_announcement_ticker() {
         <?php
     }
 }
-add_action( 'astra_header_after', 'vbs_announcement_ticker' );
+add_action( 'astra_content_before', 'vbs_announcement_ticker' );
