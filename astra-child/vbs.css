@@ -775,3 +775,48 @@
         justify-content: center;
     }
 }
+
+/* ---------- Scrolling Announcement Ticker ---------- */
+.vbs-ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+    background: var(--vbs-navy);
+    color: var(--vbs-gold);
+    padding: 12px 0;
+    font-family: var(--vbs-font-main);
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-bottom: 2px solid var(--vbs-gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 9999;
+    position: relative;
+}
+
+.vbs-ticker {
+    display: flex;
+    white-space: nowrap;
+    animation: vbsTickerMove 40s linear infinite;
+}
+
+.vbs-ticker-item {
+    padding: 0 60px;
+    flex-shrink: 0;
+}
+
+@keyframes vbsTickerMove {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.vbs-ticker-wrap:hover .vbs-ticker {
+    animation-play-state: paused;
+}
+
+/* Ensure the ticker looks good on small screens */
+@media (max-width: 600px) {
+    .vbs-ticker-wrap {
+        padding: 8px 0;
+        font-size: 0.8rem;
+    }
+}

@@ -75,3 +75,22 @@ function vbs_force_stretched_layout( $layout ) {
     }
     return $layout;
 }
+
+/**
+ * Add a scrolling VBS announcement ticker to the very top of the site.
+ * This hooks into Astra's 'astra_header_before' to appear above the main navigation.
+ */
+function vbs_announcement_ticker() {
+    // Show on the homepage and the VBS page
+    if ( is_front_page() || is_page( array( 'vbs', 'vbs-2026' ) ) ) { 
+        ?>
+        <div class="vbs-ticker-wrap">
+            <div class="vbs-ticker">
+                <div class="vbs-ticker-item">🌟 Registration is OPEN for VBS 2026: Wonderfully Made! &nbsp;&nbsp;&middot;&nbsp;&nbsp; June 22–27 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 10:00am – 3:00pm &nbsp;&nbsp;&middot;&nbsp;&nbsp; <a href="/vbs" style="color: inherit; text-decoration: underline;">Sign up today to save your spot!</a> 🌟</div>
+                <div class="vbs-ticker-item">🌟 Registration is OPEN for VBS 2026: Wonderfully Made! &nbsp;&nbsp;&middot;&nbsp;&nbsp; June 22–27 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 10:00am – 3:00pm &nbsp;&nbsp;&middot;&nbsp;&nbsp; <a href="/vbs" style="color: inherit; text-decoration: underline;">Sign up today to save your spot!</a> 🌟</div>
+            </div>
+        </div>
+        <?php
+    }
+}
+add_action( 'astra_header_before', 'vbs_announcement_ticker' );
