@@ -745,3 +745,33 @@
   opacity: 0.8;
   text-decoration: underline;
 }
+
+/* ---------- VBS Navigation Menu Button ---------- */
+/* Applies when 'vbs-menu-button' class is added to the menu item in WP Appearance > Menus */
+.vbs-menu-button a {
+    background-color: var(--vbs-gold) !important;
+    color: var(--vbs-navy) !important;
+    padding: 10px 22px !important;
+    border-radius: 50px;
+    font-weight: 700 !important;
+    margin-left: 15px;
+    display: inline-flex !important;
+    align-items: center;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.vbs-menu-button a:hover {
+    background-color: var(--vbs-navy) !important;
+    color: var(--vbs-white) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 921px) {
+    .vbs-menu-button a {
+        margin-left: 0;
+        margin-top: 10px;
+        justify-content: center;
+    }
+}
