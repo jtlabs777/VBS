@@ -227,7 +227,17 @@ video {
   font-size: 1rem;
   color: var(--color-gray-200);
   opacity: 0.8;
+  margin-bottom: 8px;
+}
+
+.hero-location {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-gold);
   margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .hero-cta {
